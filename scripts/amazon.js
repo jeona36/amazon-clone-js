@@ -1,4 +1,5 @@
-const products = [{
+//we are taking the products array from another file but i commented this couse i wrote some comments.(delete it in the future).
+/* const products = [{
   image: "images/products/athletic-cotton-socks-6-pairs.jpg",
     name: "Black and Gray Athletic Cotton Socks - 6 Pairs",
     rating: {
@@ -23,7 +24,15 @@ priceCents: 1090
       count: 56
     },
     priceCents: 799
-}];
+}, {
+  image: "images/products/black-2-slot-toaster.jpg",
+    name: "2 Slot Toaster - Black",
+    rating: {
+      stars: 5,
+      count: 2197
+    },
+    priceCents: 1899
+}];*/
 
 let productsHTML = '';
 
