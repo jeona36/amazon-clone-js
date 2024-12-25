@@ -34,6 +34,9 @@ priceCents: 1090
     priceCents: 1899
 }];*/
 
+//we want to get the variable cart so after we export it we import it here. in the'' the .. means we are out of this file then we go into data then into cart.js. 
+import {cart} from '../data/cart.js';
+
 let productsHTML = '';
 
 products.forEach((product) => {
@@ -62,7 +65,7 @@ products.forEach((product) => {
           </div>
 
           <div class="product-quantity-container">
-            <select>
+            <select class="js-quantity-selector-${product.id}">
               <option selected value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
