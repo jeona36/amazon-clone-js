@@ -36,7 +36,7 @@ priceCents: 1090
 
 //we want to get the variable cart so after we export it we import it here. in the'' the .. means we are out of this file then we go into data then into cart.js. 
 import {cart} from '../data/cart.js';
-
+import {products} from '../data/products.js'
 let productsHTML = '';
 
 products.forEach((product) => {
