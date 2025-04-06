@@ -35,8 +35,11 @@ priceCents: 1090
 }];*/
 
 //we want to get the variable cart so after we export it we import it here. in the'' the .. means we are out of this file then we go into data then into cart.js. 
-import {cart, addToCart} from '../data/cart.js';
+import {cart, addToCart, calculateCartQuantity} from '../data/cart.js';
 import {products} from '../data/products.js'
+
+updateCartQuantity();
+
 let productsHTML = '';
 
 products.forEach((product) => {
@@ -99,19 +102,14 @@ products.forEach((product) => {
 document.querySelector('.js-products-grid')
   .innerHTML = productsHTML;
 
-
   function updateCartQuantity(){
-    let cartQuantity = 0;
-
-       cart.forEach((cartItem) => {
-        cartQuantity += cartItem.quantity;
-       });
+    const cartQuantity = calculateCartQuantity();
 
        document.querySelector('.js-cart-quantity')
-        .innerHTML = cartQuantity;
-        
-  };
+        .innerHTML = cartQuantity;        
 
+  };
+   
   const addedMessageTimeouts = {};
 
   document.querySelectorAll('.js-add-to-cart')
