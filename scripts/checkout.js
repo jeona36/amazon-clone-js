@@ -1,8 +1,8 @@
-import {cart, removeFromCart, calculateCartQuantity, updateQuantity} from '../data/cart.js';
+import {cart, removeFromCart, calculateCartQuantity, updateQuantity, updateDeliveryOption} from '../data/cart.js';
 import {products} from '../data/products.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 import { deliveryOptions } from '../data/deliveryOptions.js';
-
+    
 const today = dayjs();
 //dayjs has a method called .add and it takes two parameters one is the number that we want to add and one is the length like 'days' 'months' etc.
 const deliveryDate = today.add(7,'days');
@@ -42,6 +42,7 @@ cart.forEach((cartItem) => {
   }
  });
 
+ 
  const today = dayjs();
  const deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
  const dateString = deliveryDate.format('dddd, MMMM D');
@@ -109,7 +110,9 @@ function deliveryOptionsHTML(matchingProduct, cartItem){
      const isChecked = deliveryOption.id === cartItem.deliveryOptionId;
 
      html += `
-        <div class="delivery-option">
+        <div class="delivery-option js-delivery-option"
+        data-product-id= "${matchingProduct.id}"
+        data-delivery-option-id= "${deliveryOption.id}">
           <input type="radio" ${isChecked ? 'checked' : ''}
             class="delivery-option-input"
             name="delivery-option-${matchingProduct.id}">
@@ -182,3 +185,14 @@ document.querySelector('.js-order-summary').
   });
  });
  
+
+ document.querySelectorAll('.js-delivery-option')
+ .forEach((element) =>{
+  element.addEventListener('click' ,()=>{
+    //const productId =element.dataset.productId;
+    //const deliveryOptionId =element.dataset.deliveryOptionId;
+    //shortcut
+     const {productId, deliveryOptionId} = element.dataset;
+    updateDeliveryOption(productId, deliveryOptionId);
+  });
+ });
