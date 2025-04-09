@@ -1,7 +1,8 @@
 import {cart, removeFromCart, calculateCartQuantity, updateQuantity, updateDeliveryOption} from '../../data/cart.js';
-import {products} from '../../data/products.js';
+import {products, getProduct} from '../../data/products.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
-import { deliveryOptions } from '../../data/deliveryOptions.js';
+import { deliveryOptions, getDeliveryOption } from '../../data/deliveryOptions.js';
+import formatCurrency from './utils/money.js';
     
 //const today = dayjs();
 //dayjs has a method called .add and it takes two parameters one is the number that we want to add and one is the length like 'days' 'months' etc.
@@ -28,23 +29,15 @@ function updateCartQuantity(){
     cart.forEach((cartItem) => {
     const productId = cartItem.productId;
 
-    let matchingProduct;
+    const matchingProduct = getProduct(productId);
 
-    products.forEach((product) => {
-      if(product.id === productId){
-        matchingProduct = product;
-      }
-    });
+    
 
     const deliveryOptionId = cartItem.deliveryOptionId;
 
-    let deliveryOption;
+    const deliveryOption = getDeliveryOption(deliveryOptionId);
 
-    deliveryOptions.forEach((option) =>{
-      if(option.id === deliveryOptionId){
-        deliveryOption = option;
-      }
-    });
+    
 
     
     const today = dayjs();
@@ -69,7 +62,7 @@ function updateCartQuantity(){
                 ${matchingProduct.name}
               </div>
               <div class="product-price">
-                $${(matchingProduct.priceCents / 100).toFixed(2)}
+                $${formatCurrency(matchingProduct.priceCents)}
               </div>
               <div class="product-quantity">
                 <span>
