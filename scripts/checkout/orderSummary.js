@@ -3,6 +3,7 @@ import {products, getProduct} from '../../data/products.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 import { deliveryOptions, getDeliveryOption } from '../../data/deliveryOptions.js';
 import formatCurrency from './utils/money.js';
+import { renderPaymentSummary } from './paymentSummary.js';
     
 //const today = dayjs();
 //dayjs has a method called .add and it takes two parameters one is the number that we want to add and one is the length like 'days' 'months' etc.
@@ -140,6 +141,7 @@ function updateCartQuantity(){
       const container = document.querySelector(`.js-cart-item-container-${productId}`);
       container.remove();
       updateCartQuantity();
+      renderPaymentSummary();
     });
     });
 
@@ -167,7 +169,7 @@ function updateCartQuantity(){
         if(newQuantity < 0 || newQuantity >= 1000){
           alert('Quantity must be at least 0 and less than 1000');
           return;
-        }
+        };
 
         updateQuantity(productId, newQuantity);
 
@@ -179,6 +181,7 @@ function updateCartQuantity(){
         .innerHTML = newQuantity;
 
         updateCartQuantity();
+        renderPaymentSummary();
       });
     });
     
@@ -192,6 +195,7 @@ function updateCartQuantity(){
         const {productId, deliveryOptionId} = element.dataset;
         updateDeliveryOption(productId, deliveryOptionId);
         renderOrderSummary();
+        renderPaymentSummary();
       });
     });
   };
