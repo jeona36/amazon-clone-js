@@ -137,10 +137,11 @@ function updateCartQuantity(){
     link.addEventListener('click', () => {
       const productId =link.dataset.productId;
       removeFromCart(productId);
-
-      const container = document.querySelector(`.js-cart-item-container-${productId}`);
-      container.remove();
+      //instead of using this code we can just use renderOrderSummary.
+      /*const container = document.querySelector(`.js-cart-item-container-${productId}`);
+      container.remove();*/
       updateCartQuantity();
+      renderOrderSummary();
       renderPaymentSummary();
     });
     });
@@ -166,8 +167,8 @@ function updateCartQuantity(){
 
         const newQuantity = Number(quantityInput.value);
 
-        if(newQuantity < 0 || newQuantity >= 1000){
-          alert('Quantity must be at least 0 and less than 1000');
+        if(newQuantity < 0 || newQuantity >= 100){
+          alert('Quantity must be at least 0 and less than 100');
           return;
         };
 
