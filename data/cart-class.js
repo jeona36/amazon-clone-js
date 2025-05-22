@@ -3,7 +3,7 @@ class Cart {
    cartItems;
    //when adding '#' to a property or a 'method' it means that the property is private, so it can't be used outside of the class.
    #localStorageKey;
-
+    //the constructor let us put set up code inside the class so when we use this class the code inside the constructore will run automaticlly.
    constructor (localStorageKey){
     this.#localStorageKey = localStorageKey;
     
