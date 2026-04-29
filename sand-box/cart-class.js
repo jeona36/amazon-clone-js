@@ -1,3 +1,4 @@
+//the code here is not used in the project (only for practicing classes).
 //a class is a way to generate objects.
 class Cart {
    cartItems;

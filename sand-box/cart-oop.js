@@ -1,4 +1,5 @@
- //'this' will give us the outer object.
+ //the code here is not used in the project (only for practicing oop).
+//'this' will give us the outer object.
  //we will write 'cart-oop' to not mix up with the original cart in localStorage.
 
  function Cart(localStorageKey){

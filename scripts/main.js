@@ -1,41 +1,4 @@
-//we are taking the products array from another file but i commented this couse i wrote some comments.(delete it in the future).
-/* const products = [{
-  image: "images/products/athletic-cotton-socks-6-pairs.jpg",
-    name: "Black and Gray Athletic Cotton Socks - 6 Pairs",
-    rating: {
-      stars: 4.5,
-      count: 87
-},
-//js. has problems doing math with floats(0.1, 0.3, etc) so insted of 10.90 we will write the numbers in cents 1090 (1 dollar = 100 cents) and so on for the rest of products.
-priceCents: 1090
-}, {
-  image: "images/products/intermediate-composite-basketball.jpg",
-    name: "Intermediate Size Basketball",
-    rating: {
-      stars: 4,
-      count: 127
-    },
-    priceCents: 2095
-}, {
-  image: "images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg",
-    name: "Adults Plain Cotton T-Shirt - 2 Pack",
-    rating: {
-      stars: 4.5,
-      count: 56
-    },
-    priceCents: 799
-}, {
-  image: "images/products/black-2-slot-toaster.jpg",
-    name: "2 Slot Toaster - Black",
-    rating: {
-      stars: 5,
-      count: 2197
-    },
-    priceCents: 1899
-}];*/
-
-//we want to get the variable cart so after we export it we import it here. in the'' the .. means we are out of this file then we go into data then into cart.js. 
-import {cart, addToCart, calculateCartQuantity} from '../data/cart.js';
+import {cart, addToCart, calculateCartQuantity} from './cart.js';
 import {products} from '../data/products.js'
 
 updateCartQuantity();
