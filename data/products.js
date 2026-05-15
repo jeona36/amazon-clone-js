@@ -53,7 +53,7 @@
 
   extraInfoHTML() {
     return `
-    <a href="${this.sizeChartLink}" target="_blank">Size chart</a>
+    <a class="size-chart" href="${this.sizeChartLink}" target="_blank">Size chart</a>
     `;
   }
  }
@@ -72,12 +72,14 @@
 
   extraInfoHTML(){
     return `
-    <a href="${this.instructionsLink}" target="_blank"> 
+    <div class="extra-info">
+    <a class="instructions-link" href="${this.instructionsLink}" target="_blank"> 
     Instructions 
     </a>
-    <a href="${this.warrantyLink}" target="_blank">
+    <a class="warranty-link" href="${this.warrantyLink}" target="_blank">
     Warranty 
     </a>
+    </div>
     `;
   }
  }
