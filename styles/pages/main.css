@@ -40,8 +40,35 @@
 }
 
 @media (max-width: 575px) {
+    .main {
+    padding: 12px;
+  }
+
   .products-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .product-container {
+    padding: 16px 12px;
+  }
+
+  .product-image-container {
+    height: 120px;
+  }
+
+  .product-name {
+    font-size: 14px;
+    min-height: 42px;
+  }
+
+  .product-rating-stars {
+    width: 80px;
+  }
+
+  .add-to-cart-button {
+    font-size: 13px;
+    padding: 8px;
   }
 }
 
